@@ -1,0 +1,93 @@
+/*************************************************************************
+      Hunter Stout     -   3/18/2022
+      tarray.template  -   Lab 8 Template File.
+*************************************************************************/
+
+using namespace std;
+
+//########################## C O N S T R U C T O R   &   B I G   3 ##########################
+
+template<class T>
+Tarray<T>::Tarray() { //Constructor
+    capacity = 5;
+    used = 0;
+    current_index = 0;
+    data = new T[capacity];
+}
+
+template<class T>
+Tarray<T>::~Tarray() { //Deconconstructor
+    delete[] data;
+}
+
+template<class T>
+Tarray<T>::Tarray(const T& other) { //Copy Constructor
+    used = other.used;
+    capacity = other.capacity;
+    data = new T[capacity];
+    for(int i = 0; i < used; i++) {
+        data[i] = other.data[i];
+    }
+}
+
+template<class T>
+void Tarray<T>::operator = (const T& other) { //Assignment Constructor
+    if (this == &other) {
+        return;
+    }
+    delete[] data;
+    used = other.used;
+    capacity = other.capacity;
+    data = new T[capacity];
+    for(int i = 0; i < used; i++) {
+        data[i] = other.data[i];
+    }
+}
+
+//################################# A D D   &   R E M O V E #################################
+
+template<class T>
+void Tarray<T>::add(T item) {
+    used++;
+    if (used == capacity) { //Checks for resize.
+        resize();
+    }
+    for (size_t i = 0; i < used; i++) {
+        if (i == used - 1) {
+            data[i] = item;
+        }
+    }
+}
+
+template<class T>
+void Tarray<T>::remove_current() {
+    T *tmp;
+    tmp = new T[capacity];
+    for(size_t i = 0; i < used; i++) { //Copies array
+        if (i != current_index) { //Ignores song on cursor.
+            if (i > current_index) { //Adjusts array size once song is removed.
+                tmp[i-1] = data[i];
+            }
+            else { //Normal copy.
+                tmp[i] = data[i];
+            }
+        }
+    }
+    delete[] data;
+    data = tmp;
+    used--;
+}
+
+//############################### R E S I Z E (P R I V A T E) ###############################
+
+template<class T>
+void Tarray<T>::resize() { //Resize (Private)
+    T *tmp;
+    tmp = new T[capacity + 5];
+    for (size_t i = 0; i < used; i++) {
+        tmp[i] = data[i];
+    }
+    delete[] data;
+    capacity += 5;
+    data = tmp;
+}

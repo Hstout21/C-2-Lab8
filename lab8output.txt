@@ -1,0 +1,10 @@
+Script started on 2022-03-18 14:00:45-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="159" LINES="39"]
+]0;hunter@DESKTOP-GT8U24P: /mnt/c/Users/hunte/Desktop/css2/lab8[01;32mhunter@DESKTOP-GT8U24P[00m:[01;34m/mnt/c/Users/hunte/Desktop/css2/lab8[00m$ ./a.out
+1804289383
+846930886
+1681692777
+1714636915
+CS is the best at Ohio University ]0;hunter@DESKTOP-GT8U24P: /mnt/c/Users/hunte/Desktop/css2/lab8[01;32mhunter@DESKTOP-GT8U24P[00m:[01;34m/mnt/c/Users/hunte/Desktop/css2/lab8[00m$ exit
+exit
+
+Script done on 2022-03-18 14:01:20-04:00 [COMMAND_EXIT_CODE="0"]
